@@ -1,0 +1,99 @@
+#VRML V2.0 utf8
+
+#Ban go
+Transform {
+	children [
+		Shape {
+			appearance DEF maugo Appearance {
+				material Material {
+					diffuseColor .278 .2 .0784
+					specularColor .31 .14 .27
+					ambientIntensity .04
+					shininess .1
+				}
+			}
+			geometry Extrusion {
+				crossSection [
+						1.00	0.00
+						0.92	0.38
+						0.71	0.71
+						0.38	0.92
+						0.00	1.00
+						-0.38	0.92
+						-0.71	0.71
+						-0.92	0.38
+						-1.00	0.00
+						-0.92	-0.38
+						-0.71	-0.71
+						-0.38	-0.92
+						0.00	-1.00
+						0.38	-0.92
+						0.71	-0.71
+						0.92	-0.38
+						1.00	0.00
+					]
+					spine [0 0 0, 0 0.5 0,0 0.5 0,0 2 0,0 2 0,0 2.5 0,0 2.5 0, 0 3 0,0 3 0,0 2.98 0]
+					scale [1.2 1.2,1.2 1.2,0.5 0.5,0.5 0.5,0.7 0.7,0.7 0.7,2 2, 2 2,1.9 1.9,1.9 1.9]
+					beginCap TRUE
+					endCap TRUE
+					solid FALSE
+			}
+		}
+
+		#Ghe go
+
+		Transform {
+			translation	3 0 0
+			children [
+				DEF ghe Shape {
+					appearance Appearance {
+						material Material {
+							diffuseColor .329 .345 .278
+							specularColor .31 .25 .13
+							ambientIntensity .412
+							shininess .1
+						}
+					}
+					geometry Extrusion {
+						crossSection [
+							1.00	0.00
+							0.92	0.38
+							0.71	0.71
+							0.38	0.92
+							0.00	1.00
+							-0.38	0.92
+							-0.71	0.71
+							-0.92	0.38
+							-1.00	0.00
+							-0.92	-0.38
+							-0.71	-0.71
+							-0.38	-0.92
+							0.00	-1.00
+							0.38	-0.92
+							0.71	-0.71
+							0.92	-0.38
+							1.00	0.00
+						]
+						spine [0 0 0, 0 0.5 0,,0 1.45 0,0 1.45 0,0 1.5 0]
+						scale [0.95 0.95,0.9 0.9,0.95 0.95,1 1,1 1]
+						beginCap TRUE
+						endCap TRUE
+						solid FALSE
+					}
+				}
+			]
+		}
+		Transform {
+			translation	0 0 -3
+			children USE ghe
+		}
+		Transform {
+			translation	-3 0 0
+			children USE ghe
+		}
+		Transform {
+			translation	0 0 3
+			children USE ghe
+		}
+	]
+}
