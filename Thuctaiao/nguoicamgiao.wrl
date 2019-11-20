@@ -1,11 +1,13 @@
 #VRML V2.0 utf8
 
 Viewpoint {
-	position 0 0 10
+	orientation	0 1 0 1.57
+	position 30 0 0
 }
+
 DEF nguoi Transform {
 	children [
-		Transform {
+		DEF than Transform {
 			children [
 				#dau nguoi
 				Transform {
@@ -367,59 +369,64 @@ DEF nguoi Transform {
 			]
 		}
 		#chan phai	   -0.6 -3 0
-		DEF	chanphai Transform {
-			children [
-				Transform {
-					translation	-0.6 -3 0
+		DEF chanphai Transform {
+			center -0.6 -3  0
+			children  [
+				DEF	chanphai1 Transform {
 					children [
-						Shape {
-							appearance Appearance {
-								material Material {
-									ambientIntensity 0
+						Transform {
+							translation	-0.6 -3 0
+							children [
+								Shape {
+									appearance Appearance {
+										material Material {
+											ambientIntensity 0
+										}
+									}
+									geometry Extrusion {
+										crossSection [
+											2.00	0.00
+											1.85	0.77
+											1.41	1.41
+											0.77	1.85
+											0.00	2.00
+											-0.77	1.85
+											-1.41	1.41
+											-1.85	0.77
+											-2.00	0.00
+											-1.85	-0.77
+											-1.41	-1.41
+											-0.77	-1.85
+											0.00	-2.00
+											0.77	-1.85
+											1.41	-1.41
+											1.85	-0.77
+											2.00	0.00
+										]
+										spine [0 0 0,0 -1.4 0,0 -2.4 0,0 -3 0,0 -4.9 0]
+										scale [0.3 0.35,0.27 0.27,0.2 0.2,0.22 0.22,0.16 0.16]
+										creaseAngle	1
+										beginCap TRUE
+										endCap TRUE
+										solid FALSE
+									}
 								}
-							}
-							geometry Extrusion {
-								crossSection [
-									2.00	0.00
-									1.85	0.77
-									1.41	1.41
-									0.77	1.85
-									0.00	2.00
-									-0.77	1.85
-									-1.41	1.41
-									-1.85	0.77
-									-2.00	0.00
-									-1.85	-0.77
-									-1.41	-1.41
-									-0.77	-1.85
-									0.00	-2.00
-									0.77	-1.85
-									1.41	-1.41
-									1.85	-0.77
-									2.00	0.00
-								]
-								spine [0 0 0,0 -1.4 0,0 -2.4 0,0 -3 0,0 -4.9 0]
-								scale [0.3 0.35,0.27 0.27,0.2 0.2,0.22 0.22,0.16 0.16]
-								creaseAngle	1
-								beginCap TRUE
-								endCap TRUE
-								solid FALSE
-							}
+							]
 						}
-					]
-				}
-				#ban chan
-				Transform {
-					translation	-0.6 -7.9 0.28 
-					scale 1.4 0.6 2.5
-					children [
-						Shape {
-							geometry Sphere	{radius 0.25}
-							appearance Appearance {
-								material Material {
-									ambientIntensity 0
+						#ban chan
+						Transform {
+							translation	-0.6 -7.9 0.28 
+							scale 1.4 0.6 2.5
+							children [
+								Shape {
+									geometry Sphere	{radius 0.25}
+									appearance Appearance {
+										material Material {
+											ambientIntensity 0
+										}
+									}
 								}
-							}
+							]
 						}
 					]
 				}
@@ -427,8 +434,9 @@ DEF nguoi Transform {
 		}
 		#chan trai	   0.6 -3 0
 		DEF	chantrai Transform {
+			center -0.6 -3  0
 			translation	1.2 0 0
-			children USE chanphai
+			children USE chanphai1
 		}
 		#tay phai	  -1.7 0 0
 		DEF	tayphai Transform {
@@ -490,10 +498,20 @@ DEF nguoi Transform {
 				}
 				#giao
 				DEF giao Transform {
-					translation	-1.7 1 5.15
-					scale 1.55 2 1.55
-					rotation 1 0 0 0.785
-					children [Inline {url "giao.wrl"}]
+					children [
+						Transform {
+							translation	-1.7 1 5.15
+							scale 1.55 2 1.55
+							rotation 1 0 0 0.785
+							children [
+								Inline {
+									url "giao.wrl"
+									bboxCenter 0 0 0
+									bboxSize -1 -1 -1
+								}
+							]
+						}
+					]
 				}
 			]
 		}
@@ -590,16 +608,28 @@ DEF trau Transform {
 DEF time TimeSensor {
 	enabled	FALSE
 	cycleInterval 3
-	loop FALSE 
+	loop TRUE
 	startTime 0 
 	stopTime 0 
 }
 #Dam giao
 DEF damgiao OrientationInterpolator	{
-	key	[0,0.5,1]
-	keyValue [1 0 0 -0.875,1 0 0 0.875,1 0 0 0] 
+	key	[0,0.5,0.75 ,1]
+	keyValue [1 0 0 0,1 0 0 0.785,1 0 0 -0.2] 
 }
 
+DEF chanphaidichuyen OrientationInterpolator	{
+	key	[0,0.25,0.5,0.75,1]
+	keyValue [1 0 0 0,1 0 0 0.3,1 0 0 0,1 0 0 -0.3,1 0 0 0]
+}
+DEF	chantraidichuyen OrientationInterpolator {
+	key	[0,0.25,0.5,0.7,1]
+	keyValue [1 0 0 0,1 0 0 -0.3,1 0 0 0,1 0 0 0.3,1 0 0 0]
+}
+DEF nguoidichuyen PositionInterpolator {
+	key	[0,0.25,0.5,0.75, 1]
+	keyValue [0 0 0,0 0 0.5,0 0 1,0 0 1.5,0 0 2]
+}
 
 DEF ma Script {
 	eventIn	SFBool turnOn
@@ -625,5 +655,13 @@ ROUTE ma.on	TO time.enabled
 ROUTE touch.touchTime TO time.startTime
 ROUTE time.fraction_changed	TO damgiao.set_fraction
 ROUTE damgiao.value_changed	TO tayphai.rotation
-ROUTE time.fraction_changed TO	lacthan.set_fraction
-ROUTE lacthan.value_changed TO trau.rotation
+#ROUTE time.fraction_changed TO	lacthan.set_fraction
+#ROUTE lacthan.value_changed TO trau.rotation
+ROUTE time.fraction_changed	TO chantraidichuyen.set_fraction
+ROUTE chantraidichuyen.value_changed TO	chantrai.rotation
+ROUTE time.fraction_changed	TO chanphaidichuyen.set_fraction
+ROUTE chanphaidichuyen.value_changed TO	chanphai.rotation
+ROUTE time.fraction_changed	TO nguoidichuyen.set_fraction
+ROUTE nguoidichuyen.value_changed TO nguoi.translation
+
+							 
