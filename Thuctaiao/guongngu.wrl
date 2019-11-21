@@ -24,6 +24,7 @@ Transform {
 				solid FALSE
 				beginCap FALSE
 				endCap TRUE
+				creaseAngle	1
 			}
 		}
 		Transform {

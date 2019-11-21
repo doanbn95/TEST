@@ -3,6 +3,10 @@
 Viewpoint {
 	position 0 5 30
 }
+DEF	view Viewpoint {
+	position 10 5 0
+	orientation	0 1 0 1.57
+}	
 DEF chuongtrau Transform {
 	children [
 		Transform {
@@ -105,7 +109,27 @@ DEF chuongtrau Transform {
 				}
 			]
 		}
+		DEF ma Script {
+			eventIn	SFBool turnOn
+			eventOut SFBool	on
+			field SFBool turn FALSE
+			url	"javascript:
+			function turnOn(val){
+				if(val){
+					turn=!turn;
+					on=turn;
+				}
+			}	
+			"
+		}
+		DEF	touch TouchSensor {
+			enabled	TRUE
+		}
+
 	]
+			
+ROUTE touch.isActive TO	ma.turnOn
+ROUTE ma.on	TO	view.set_bind
 }
 
 

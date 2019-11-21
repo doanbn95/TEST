@@ -1,6 +1,12 @@
 #VRML V2.0 utf8
 
 #Ve xich du
+Viewpoint {
+	position 0 0 20
+}
+DEF view Viewpoint {
+	position 0 0 5
+}
 
 DEF xichdu Transform {
 	center 0 2.5 0
@@ -94,6 +100,9 @@ DEF khung Transform {
 				}
 			]
 		}
+		DEF touch TouchSensor	{
+			enabled	TRUE
+		}
 	]
 }
 DEF time TimeSensor {
@@ -107,5 +116,22 @@ DEF orent OrientationInterpolator	{
 	key	[0 ,0.25,0.5,0.75,1]
 	keyValue [1 0 0 0,1 0 0 0.3,1 0 0 -0.6,1 0 0 0.6,1 0 0 0]
 }
+
+DEF ma Script {
+	eventIn	SFBool turnOn
+	eventOut SFBool	on
+	field SFBool turn FALSE
+	url	"javascript:
+	function turnOn(val){
+		if(val){
+			turn=!turn;
+			on=turn;
+		}
+	}	
+	"
+}
 ROUTE time.fraction_changed	TO orent.set_fraction
 ROUTE orent.value_changed TO xichdu.rotation
+
+ROUTE touch.isActive TO	 ma.turnOn
+ROUTE ma.on	TO view.set_bind
