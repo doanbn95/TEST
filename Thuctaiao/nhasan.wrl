@@ -412,7 +412,7 @@ DEF nha Transform {
 					appearance DEF maurom Appearance {
 			
 						texture	ImageTexture {
-							url	"images/rom.png"
+							url	"images/mauromra.png"
 							repeatS	TRUE
 							repeatT	TRUE
 						}

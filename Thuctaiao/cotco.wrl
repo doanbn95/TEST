@@ -35,6 +35,7 @@ Transform {
 				spine [0 0 0,0 1 0,0 1 0,0 0.75 0]
 				scale [1 1,1 1,0.8 0.8,0.8 0.8]
 				beginCap TRUE
+				creaseAngle	2
 				endCap TRUE
 				solid FALSE
 			}
@@ -72,6 +73,7 @@ Transform {
 				spine [0 0.75 0,0 4 0,0 4 0,0 8 0,0 8 0,0 12 0,0 12 0,0 12.01 0,0 12.015 0,0 12.025 0,0 12.035 0, 0 12.045 0,0 12.05 0]
 				scale [0.2 0.2,0.2 0.2,0.15 0.15,0.15 0.15,0.1 0.1 ,0.1 0.1,0 0,0.06 0.06,0.08 0.08,0.1 0.1,0.08 0.08,0.06 0.06,0 0]
 				beginCap TRUE
+				creaseAngle	2
 				endCap TRUE
 				solid FALSE
 			}

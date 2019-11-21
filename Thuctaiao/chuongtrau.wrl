@@ -96,7 +96,7 @@ DEF chuongtrau Transform {
 			children USE rao
 		}
 		Transform {
-			translation	0 5.8 4
+			translation	0 5.8 0
 			children [
 				DEF	trau Inline {
 					url"trauchay.wrl"

@@ -3,7 +3,7 @@
 #goc nhin
 
 Viewpoint {
-	position 0 20 100
+	position 0 20 200
 }
 Background {
 	skyAngle [ 0.075, 0.1, 0.2, 1.309, 1.5708 ]
@@ -25,7 +25,7 @@ DEF matdat Transform {
 				}
 			}
 			geometry Box {
-				size 100 1 100
+				size 150 1 150
 			}
 	
 		}
@@ -34,7 +34,7 @@ DEF matdat Transform {
 
 DEF conglang Transform {										   
 			
-	translation	0 0.5 45
+	translation	0 0.5 70
 	scale  1 2 1
 	children [
 		Inline {
@@ -44,29 +44,34 @@ DEF conglang Transform {
 		}
 	]
 }
-DEF nhasan Transform {
-	scale 0.6 0.6 0.6
-	translation	40 1.25 0
-	rotation 0 1 0 -1.57
+DEF group_nhasan Transform {
 	children [
-		Inline {
-			url	["nhasan.wrl"]
-			bboxCenter 0 0 0
-			bboxSize -1 -1 -1
+		DEF nhasan Transform {
+			scale 1 1 1
+			translation	55 3 0
+			rotation 0 1 0 -1.57
+			children [
+				Inline {
+					url	["nhasan.wrl"]
+					bboxCenter 0 0 0
+					bboxSize -1 -1 -1
+				}
+			]
+		}
+		Transform {
+			translation	0 0 45
+			children USE nhasan
+		}
+		Transform {
+			translation	0 0 -45
+			children USE nhasan
 		}
 	]
 }
-Transform {
-	translation	0 0 30
-	children USE nhasan
-}
-Transform {
-	translation	0 0 -30
-	children USE nhasan
-}
+
 DEF nharong Transform {
-	scale 2 2 2
-	translation	4 1 -40
+	scale 3 3 3
+	translation	4 1 -55
 	children [
 		Inline {
 			url["nharong.wrl"]
@@ -75,6 +80,7 @@ DEF nharong Transform {
 		}
 	]
 }
+
 DEF nguoigiao Transform {
 	translation	0 8 -15
 	children [
@@ -87,7 +93,7 @@ DEF nguoigiao Transform {
 }
 DEF cotco Transform {
 	translation	0 0 5
-	scale 2 4 2
+	scale 3 5 3
 	children [
 		Inline {
 			url	["cotco.wrl"]
@@ -97,8 +103,8 @@ DEF cotco Transform {
 	]
 }
 DEF giengnuoc Transform {
-	translation	-40 0.5 -40
-	scale 1.5 1.5 1.5
+	translation	-60 0.5 -50
+	scale 2 2 2
 	children [
 		Inline {
 			url"gieng nuoc.wrl"
@@ -119,8 +125,8 @@ DEF giagao Transform {
 DEF raoxungquanh Transform {
 	children [
 		DEF rao Transform {
-			translation	0 0 -49.5
-			scale 2.2 1 1
+			translation	0 0 -70
+			scale 3 1 1
 			children [
 				DEF hangrao Inline {
 					url	"hangrao.wrl"
@@ -138,21 +144,22 @@ DEF raoxungquanh Transform {
 			children USE rao
 		}
 		Transform {
-			translation	-36 0 45
-			scale 0.6 1 1
+			translation	-45 0 70
+			scale 1 1 1
 			children USE hangrao
 		}
 		Transform {
-			translation	36 0 45
-			scale 0.6 1 1
+			translation	45 0 70
+			scale 1 1 1
 			children USE hangrao
 		}
 	]
 }
 
-Transform {
-	translation	-38 0.5 0
+DEF chuongtrau Transform {
+	translation	-52 0.5 -10
 	rotation 0 1 0 1.57
+	scale 1.5 1.5 1.5
 	children [
 		Inline {
 			url	"chuongtrau.wrl"
@@ -162,8 +169,7 @@ Transform {
 
 #Mua giao
 DEF nguoimuagiao Transform {
-	translation	0 8.5 15
-	rotation 0 1 0 1.57
+	translation	-25 8.5 0
 	children [
 		Inline {
 			url	"muagiao.wrl"
@@ -173,17 +179,17 @@ DEF nguoimuagiao Transform {
 	]
 }
 Transform {
-	translation	8 0 0
+	translation	0 0 8
 	children USE nguoimuagiao 
 }
 Transform {
-	translation	-8 0 0
+	translation	0 0 -8
 	children USE nguoimuagiao
 }
 Transform {
 	rotation 0 1 0 1.57
-	translation	-35 1.6 30
-	scale 2 2 2
+	translation	-50 1.6 30
+	scale 2.2 2.2 2.2
 	children [
 		Transform {
 			translation	0 2 0
@@ -197,17 +203,17 @@ Transform {
 		}
 	]
 }
-DEF nui Transform {
-	translation	0 0 -110
-	scale 7 7 7
-	children [
-		Inline {
-			url	"nui.wrl"
-		}
-	]
-}
-Transform {
-	translation	-50 0 0
-	scale 1 1.4 1
-	children USE nui
-}
+#DEF nui Transform {
+#	translation	0 0 -110
+#	scale 7 7 7
+#	children [
+#		Inline {
+#			url	"nui.wrl"
+#		}
+#	]
+#}
+#Transform {
+#	translation	-50 0 0
+#	scale 1 1.4 1
+#	children USE nui
+#}

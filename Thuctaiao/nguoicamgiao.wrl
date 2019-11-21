@@ -580,56 +580,57 @@ DEF nguoi Transform {
 
 	]
 }
-DEF trau Transform {
-	center 4 -5 7
-	children [
-		 Transform {
-			translation	4 0 7
-			rotation 0 1 0 1.57
-			scale 1.2 1.2 1.2
-			children [
-				Inline {
-					url	"contrau.wrl"
-					bboxCenter 0 0 0
-					bboxSize -1 -1 -1
-				}
-			]
-		}
-		DEF lacthan OrientationInterpolator	{
-			key [0.8,1]
-			keyValue [ 1 0 0 0,  1 0 0 1.57]	
-		}
+#DEF trau Transform {
+#	center 4 -5 7
+#	children [
+#		 Transform {
+#			translation	4 0 7
+#			rotation 0 1 0 1.57
+#			scale 1.2 1.2 1.2
+#			children [
+#				Inline {
+#					url	"contrau.wrl"
+#					bboxCenter 0 0 0
+#					bboxSize -1 -1 -1
+#				}
+#			]
+#		}
+#		DEF lacthan OrientationInterpolator	{
+#			key [0.8,1]
+#			keyValue [ 1 0 0 0,  1 0 0 1.57]	
+#		}
 
-	]
+#	]
 	
-}
+#}
 
 #Thoi gian
 DEF time TimeSensor {
 	enabled	FALSE
 	cycleInterval 3
-	loop TRUE
+	loop FALSE
 	startTime 0 
 	stopTime 0 
 }
 #Dam giao
 DEF damgiao OrientationInterpolator	{
-	key	[0,0.5,0.75 ,1]
-	keyValue [1 0 0 0,1 0 0 0.785,1 0 0 -0.2] 
+	key	[0,0.5,0.75,1]
+	keyValue [1 0 0 0,1 0 0 0.785,1 0 0 0.234,1 0 0 0.2] 
 }
 
 DEF chanphaidichuyen OrientationInterpolator	{
-	key	[0,0.25,0.5,0.75,1]
+	key	[0,0.3,0.6,0.75,1]
 	keyValue [1 0 0 0,1 0 0 0.3,1 0 0 0,1 0 0 -0.3,1 0 0 0]
 }
 DEF	chantraidichuyen OrientationInterpolator {
-	key	[0,0.25,0.5,0.7,1]
+	key	[0,0.3,0.6,0.7,1]
 	keyValue [1 0 0 0,1 0 0 -0.3,1 0 0 0,1 0 0 0.3,1 0 0 0]
 }
 DEF nguoidichuyen PositionInterpolator {
-	key	[0,0.25,0.5,0.75, 1]
-	keyValue [0 0 0,0 0 0.5,0 0 1,0 0 1.5,0 0 2]
+	key	[0,0.3,0.6,0.8, 1]
+	keyValue [0 0 0,0 0 1,0 0 2,0 0 1,0 0 1]
 }
+
 
 DEF ma Script {
 	eventIn	SFBool turnOn
@@ -663,5 +664,6 @@ ROUTE time.fraction_changed	TO chanphaidichuyen.set_fraction
 ROUTE chanphaidichuyen.value_changed TO	chanphai.rotation
 ROUTE time.fraction_changed	TO nguoidichuyen.set_fraction
 ROUTE nguoidichuyen.value_changed TO nguoi.translation
+
 
 							 

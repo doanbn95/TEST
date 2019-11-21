@@ -1,7 +1,8 @@
 #VRML V2.0 utf8
 
 Viewpoint {
-	position 0 0 10
+	position 30 0 0
+	orientation	0 1 0 1.57
 }
 DEF nguoi Transform {
 	children [
@@ -428,8 +429,8 @@ DEF nguoi Transform {
 					]
 				}
 				DEF quayphai OrientationInterpolator	{
-					key	[0,0.2,0.4,0.5,0.7,0.9,1]
-					keyValue [1 0 0 0,1 0 0  0.05,1 0 0 0,1 0 0 0.05,1 0 0 0,1 0 0 0]
+					key	[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+					keyValue [1 0 0 0,1 0 0 -0.05,1 0 0 0.05,1 0 0 -0.05,1 0 0 0,1 0 0 0,1 0 0 -0.05,1 0 0 0.05,1 0 0 -0.05,1 0 0 0,1 0 0 0]
 				}
 			]
 		}
@@ -441,8 +442,8 @@ DEF nguoi Transform {
 					children USE chanphai1
 				}
 				DEF quaytrai OrientationInterpolator	{
-					key	[0,0.2,0.4,0.5,0.7,0.9,1]
-					keyValue [1 0 0 0,05 0 0 -0.05,1 0 0 0,1 0 0 -0.05,1 0 0 0,1 0 0 0]
+					key	[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+					keyValue [1 0 0 0,1 0 0 0.05,1 0 0 -0.05,1 0 0 0.05,1 0 0 0,1 0 0 0,1 0 0 0.05,1 0 0 -0.05,1 0 0 0.05,1 0 0 0,1 0 0 0]
 				}
 
 			]
@@ -577,8 +578,8 @@ DEF nguoi Transform {
 			enabled	TRUE
 		}
 		DEF	quaynguoi OrientationInterpolator {
-			key	[0.4,0.44,0.9,0.95,0.99]
-			keyValue [0 1 0 0,0 1 0 3.14,0 1 0 3.14,0 1 0 3.14,0 1 0 6.28]
+			key	[0,0.4,0.5,0.9,1]
+			keyValue [0 1 0 0,0 1 0 0,0 1 0 3.14,0 1 0 3.14, 0 1 0 6.28]
 		}
 
 	]
@@ -587,15 +588,15 @@ DEF nguoi Transform {
 #Thoi gian
 DEF time TimeSensor {
 	enabled	FALSE
-	cycleInterval 3
+	cycleInterval 5
 	loop TRUE 
 	startTime 0 
 	stopTime 0 
 }
 #Dam giao
 DEF damgiao OrientationInterpolator	{
-	key	[0,0.5,1]
-	keyValue [1 0 0 -0.875,1 0 0 0.875,1 0 0 0] 
+	key	[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+	keyValue [1 0 0 0,1 0 0 0.5,1 0 0 0,1 0 0 0.5,1 0 0 0,1 0 0 0,1 0 0 0.5,1 0 0 0,1 0 0 0.5,1 0 0 0,1 0 0 0] 
 }
 
 
@@ -618,15 +619,15 @@ DEF ma Script {
 	"
 }
 DEF trans PositionInterpolator {
-	key	[0,0.2,0.4,0.5,0.7,0.9,1]
-	keyValue [0 0 0,0 0 3,0 0 6,0 0 -3,0 0 -6,0 0 -6]
+	key	[0,0.4,0.5,0.9,1]
+	keyValue [0 0 0,0 0 10,0 0 10,0 0 0,0 0 0]
 }
 
 
 
 ROUTE touch.isActive TO	ma.turnOn
 ROUTE ma.on	TO time.enabled
-#ROUTE touch.touchTime TO time.startTime
+ROUTE touch.touchTime TO time.startTime
 ROUTE time.fraction_changed	TO damgiao.set_fraction
 ROUTE damgiao.value_changed	TO tayphai.rotation
 ROUTE time.fraction_changed	TO quayphai.set_fraction
@@ -637,3 +638,4 @@ ROUTE quayphai.value_changed TO	chanphai.rotation
 ROUTE quaytrai.value_changed TO	chantrai.rotation
 ROUTE time.fraction_changed	TO quaynguoi.set_fraction
 ROUTE quaynguoi.value_changed TO nguoi.rotation
+ROUTE quayphai.value_changed TO	taytrai.rotation

@@ -603,11 +603,12 @@ DEF coigiagao Transform {
 					shininess .51
 				}
 				texture	ImageTexture {
-
+					 url "images/anhgachda.jpg"
 				}
 
 			}
 			geometry Extrusion	{
+				creaseAngle	1
 				crossSection [
 					1.00	0.00
 					0.92	0.38
@@ -650,12 +651,13 @@ DEF chaygiagao Transform {
 				material Material {
 				}
 				texture	ImageTexture {
-					url	""
+					url	"images/anhgachda.jpg"
 					repeatS	TRUE
 					repeatT	TRUE
 				}
 			}
 			geometry Extrusion {
+				creaseAngle	1
 				crossSection [
 					1.00	0.00
 					0.92	0.38
@@ -689,7 +691,7 @@ DEF chaygiagao Transform {
 
 DEF time TimeSensor{
 	enabled FALSE
-	cycleInterval 5
+	cycleInterval 3
 	startTime 0
 	stopTime -1
 	loop TRUE
@@ -751,6 +753,3 @@ ROUTE trans.value_changed TO chaygiagao.translation
 ROUTE time.fraction_changed	 TO	taylenxuong.set_fraction
 ROUTE taylenxuong.value_changed	TO tayphai.rotation
 ROUTE taylenxuong.value_changed	TO taytrai.rotation
-
-
-

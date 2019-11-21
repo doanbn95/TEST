@@ -1,8 +1,14 @@
 #VRML V2.0 utf8
 
+Viewpoint {
+	position 20 0 0
+	orientation	0 1 0 1.57
+
+}
 DEF contrau Transform {
+	center  0 0 -2.5
 	children [
-		Transform {
+		DEF dau Transform {
 			children [
 				#dau trau
 				DEF dautrau Transform {
@@ -299,21 +305,22 @@ DEF contrau Transform {
 			enabled	TRUE
 		}
 		DEF trans PositionInterpolator {
-			key	[0,0.2,0.4,0.5,0.7,0.9,1]
-			keyValue [0 0 0,0 0 3,0 0 6,0 0 -3,0 0 -6,0 0 -6]
+			key	[0,0.4,0.5,0.9,1]
+			keyValue [0 0 0 ,0 0 8,0 0 8,0 0 0,0 0 0]
 		}
 		DEF quayphai OrientationInterpolator	{
-			key	[0,0.2,0.4,0.5,0.7,0.9,1]
-			keyValue [1 0 0 0,1 0 0  0.2,1 0 0 0,1 0 0 0.2,1 0 0 0,1 0 0 0]
+			key	[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+			keyValue [1 0 0 0,1 0 0 -0.08,1 0 0 0.08,1 0 0 -0.08,1 0 0 0,1 0 0 0,1 0 0 0.08,1 0 0 -0.08,1 0 0 0.08,1 0 0 0,1 0 0 0]
 		}
 		DEF quaytrai OrientationInterpolator	{
-			key	[0,0.2,0.4,0.5,0.7,0.9,1]
-			keyValue [1 0 0 0,1 0 0 -0.2,1 0 0 0,1 0 0 -0.2,1 0 0 0,1 0 0 0]
+			key	[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+			keyValue [1 0 0 0,1 0 0 0.08,1 0 0 -0.08,1 0 0 0.08,1 0 0 0,1 0 0 0,1 0 0 -0.08,1 0 0 0.08,1 0 0 -0.08,1 0 0 0,1 0 0 0]
 		}
 		DEF	quaytrau OrientationInterpolator {
-			key	[0.4,0.44,0.9,0.95,0.99]
-			keyValue [0 1 0 0,0 1 0 3.14,0 1 0 3.14,0 1 0 3.14,0 1 0 6.28]
+			key	[0.4,0.5,0.9,1]
+			keyValue [0 1 0 0,0 1 0 3.14,0 1 0 3.14,0 1 0 6.28]
 		}
+	
 		DEF	ma Script {
 			eventIn	SFBool turnOn
 			eventOut SFBool	on
@@ -336,10 +343,11 @@ ROUTE ma.on	TO time.enabled
 ROUTE time.fraction_changed	TO quayphai.set_fraction
 ROUTE time.fraction_changed	TO quaytrai.set_fraction
 ROUTE quayphai.value_changed TO	chansauphai.rotation
-ROUTE quayphai.value_changed TO	chantruocphai.rotation
+ROUTE quayphai.value_changed TO	chantruoctrai.rotation
 ROUTE quaytrai.value_changed TO	chansautrai.rotation
-ROUTE quaytrai.value_changed TO	chantruoctrai.rotation
+ROUTE quaytrai.value_changed TO	chantruocphai.rotation
 ROUTE time.fraction_changed	TO trans.set_fraction
 ROUTE trans.value_changed TO contrau.translation 
 ROUTE time.fraction_changed	TO quaytrau.set_fraction
 ROUTE quaytrau.value_changed TO	contrau.rotation
+
