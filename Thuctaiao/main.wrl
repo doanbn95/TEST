@@ -3,7 +3,7 @@
 #goc nhin
 
 Viewpoint {
-	position 0 20 200
+	position 0 20 150
 }
 Background {
 	skyAngle [ 0.075, 0.1, 0.2, 1.309, 1.5708 ]
@@ -168,52 +168,70 @@ DEF chuongtrau Transform {
 }
 
 #Mua giao
-DEF nguoimuagiao Transform {
-	translation	-25 8.5 0
+DEF group_muagiao Transform {
 	children [
-		Inline {
-			url	"muagiao.wrl"
-			bboxCenter 0 0 0
-			bboxSize -1 -1 -1
-		}
-	]
-}
-Transform {
-	translation	0 0 8
-	children USE nguoimuagiao 
-}
-Transform {
-	translation	0 0 -8
-	children USE nguoimuagiao
-}
-Transform {
-	rotation 0 1 0 1.57
-	translation	-50 1.6 30
-	scale 2.2 2.2 2.2
-	children [
-		Transform {
-			translation	0 2 0
+		DEF nguoimuagiao Transform {
+			translation	-25 8.5 0
 			children [
 				Inline {
-					url	"xichdu.wrl"
+					url	"muagiao.wrl"
 					bboxCenter 0 0 0
 					bboxSize -1 -1 -1
 				}
 			]
 		}
+		Transform {
+			translation	0 0 8
+			children USE nguoimuagiao 
+		}
+		Transform {
+			translation	0 0 -8
+			children USE nguoimuagiao
+		}
+		Transform {
+			rotation 0 1 0 1.57
+			translation	-50 2 30
+			scale 2.2 2.2 2.2
+			children [
+				Transform {
+					translation	0 2 0
+					children [
+						Inline {
+							url	"xichdu.wrl"
+							bboxCenter 0 0 0
+							bboxSize -1 -1 -1
+						}
+					]
+				}
+			]
+		}
 	]
 }
-#DEF nui Transform {
-#	translation	0 0 -110
-#	scale 7 7 7
-#	children [
-#		Inline {
-#			url	"nui.wrl"
-#		}
-#	]
-#}
-#Transform {
-#	translation	-50 0 0
-#	scale 1 1.4 1
-#	children USE nui
-#}
+
+DEF group_nui Transform {
+	children [
+		DEF nui Transform {
+			translation	0 0 -150
+			scale 8 9 8
+			children [
+				Inline {
+					url	"nui.wrl"
+				}
+			]
+		}
+		Transform {
+			translation	-50 0 0
+			scale 1 1.4 1
+			children USE nui
+		}
+	]
+}
+
+Transform {
+	translation	0 8 30
+	children [
+		Inline {
+			url	"nguoinhay.wrl"
+		}
+	]
+}

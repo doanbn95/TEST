@@ -580,27 +580,7 @@ DEF nguoi Transform {
 
 	]
 }
-<<<<<<< HEAD
-#DEF trau Transform {
-#	center 4 -5 7
-#	children [
-#		 Transform {
-#			translation	4 0 7
-#			rotation 0 1 0 1.57
-#			scale 1.2 1.2 1.2
-#			children [
-#				Inline {
-#					url	"contrau.wrl"
-#					bboxCenter 0 0 0
-#					bboxSize -1 -1 -1
-#				}
-#			]
-#		}
-#		DEF lacthan OrientationInterpolator	{
-#			key [0.8,1]
-#			keyValue [ 1 0 0 0,  1 0 0 1.57]	
-#		}
-=======
+
 DEF trau Transform {
 	center 4 -5.5 10
 	children [
@@ -620,11 +600,8 @@ DEF trau Transform {
 			key [0.8,1]
 			keyValue [ 1 0 0 0,  1 0 0 1.57]	
 		}
->>>>>>> 3c3cf2a0cf42cf525da2a4c2c6838190b808c6c1
-
-#	]
-	
-#}
+	]
+}
 
 #Thoi gian
 DEF time TimeSensor {
@@ -637,23 +614,7 @@ DEF time TimeSensor {
 
 #Dam giao
 DEF damgiao OrientationInterpolator	{
-<<<<<<< HEAD
-	key	[0,0.5,0.75,1]
-	keyValue [1 0 0 0,1 0 0 0.785,1 0 0 0.234,1 0 0 0.2] 
-}
 
-DEF chanphaidichuyen OrientationInterpolator	{
-	key	[0,0.3,0.6,0.75,1]
-	keyValue [1 0 0 0,1 0 0 0.3,1 0 0 0,1 0 0 -0.3,1 0 0 0]
-}
-DEF	chantraidichuyen OrientationInterpolator {
-	key	[0,0.3,0.6,0.7,1]
-	keyValue [1 0 0 0,1 0 0 -0.3,1 0 0 0,1 0 0 0.3,1 0 0 0]
-}
-DEF nguoidichuyen PositionInterpolator {
-	key	[0,0.3,0.6,0.8, 1]
-	keyValue [0 0 0,0 0 1,0 0 2,0 0 1,0 0 1]
-=======
 	key	[0,0.16,0.32,0.48,0.64,0.80,1]
 	keyValue [1 0 0 0,1 0 0 0.9,1 0 0 0.9,1 0 0 0.5,1 0 0 0.5,1 0 0 0.9,1 0 0 0.9] 
 }
@@ -673,7 +634,6 @@ DEF nguoidichuyen PositionInterpolator {
 DEF	taytraidichuyen OrientationInterpolator {
 	key	[0,0.2,0.4,0.6,0.8,1]
 	keyValue [1 0 0 0,1 0 0 -0.3,1 0 0 0.3,1 0 0 0,1 0 0 0,1 0 0 0]
->>>>>>> 3c3cf2a0cf42cf525da2a4c2c6838190b808c6c1
 }
 
 
