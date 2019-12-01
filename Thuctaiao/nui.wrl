@@ -9,7 +9,7 @@ Transform {
 				texture	ImageTexture {
 					repeatS	TRUE
 					repeatT	TRUE
-					url "file:///C:/Users/Duong Doan/Desktop/BTL/Thuctaiao/images/anhco.jpg"
+					url "images/anhco.jpg"
 				}
 			}
 			geometry ElevationGrid {
