@@ -9,7 +9,7 @@ Transform {
 
 					appearance DEF	mau Appearance {
 						texture ImageTexture {
-							url	"file:///C:/Users/Duong Doan/Desktop/BTL/Thuctaiao/images/maugolim.jpg"
+							url	"images/maugolim.jpg"
 						}
 					}
 					geometry Extrusion {

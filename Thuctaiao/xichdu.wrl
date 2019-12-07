@@ -18,7 +18,7 @@ DEF xichdu Transform {
 				Shape {
 					appearance DEF maugo Appearance {
 						texture	ImageTexture {
-							url"file:///C:/Users/Duong Doan/Desktop/BTL/Thuctaiao/images/maugo.jpg"
+							url"images/maugo.jpg"
 						}
 					}
 					geometry Box {

@@ -21,7 +21,7 @@ DEF chuongtrau Transform {
 							shininess .161
 						}
 						texture	ImageTexture {
-							url	"file:///C:/Users/Duong Doan/Desktop/BTL/Thuctaiao/images/maugolim.jpg"
+							url	"images/maugolim.jpg"
 						}
 					}
 					geometry Cylinder {
@@ -52,7 +52,7 @@ DEF chuongtrau Transform {
 					appearance DEF mauda Appearance {
 
 						texture	ImageTexture {
-							url	"file:///C:/Users/Duong Doan/Desktop/BTL/Thuctaiao/images/gachda.jpg"
+							url	"images/gachda.jpg"
 						}
 					}
 					geometry Box {
@@ -69,7 +69,7 @@ DEF chuongtrau Transform {
 				Shape {
 					appearance DEF maurom Appearance {
 						texture	ImageTexture {
-							url	"file:///C:/Users/Duong Doan/Desktop/BTL/Thuctaiao/images/rom.png"
+							url	"images/rom.png"
 						}
 					}
 					geometry Box{
