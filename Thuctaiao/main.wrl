@@ -120,7 +120,7 @@ DEF giengnuoc Transform {
 	scale 2 2 2
 	children [
 		Inline {
-			url"gieng nuoc.wrl"
+			url"gieng-nuoc.wrl"
 			bboxCenter 0 0 0
 			bboxSize -1 -1 -1
 		}
